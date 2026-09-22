@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     if (!parsed.success) {
       return NextResponse.json(
         {
-          error: "Invalid database configuration: " + parsed.error.errors.map(e => e.message).join(", "),
+          error: "Invalid database configuration: " + parsed.error.issues.map((e: z.ZodIssue) => e.message).join(", "),
         },
         { status: 400 },
       );
