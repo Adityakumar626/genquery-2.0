@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GenQuery 2.0
+
+GenQuery 2.0 is an intelligent generative AI application built with Next.js. It features a modern, responsive UI and integrates AI capabilities to process and generate query results, leveraging a robust database backend.
+
+## Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org) (React 19)
+- **Language:** TypeScript
+- **Styling & UI:** Tailwind CSS v4, Framer Motion, GSAP, Base UI, Lucide React
+- **Database & ORM:** PostgreSQL (via Postgres.js), Drizzle ORM, Supabase SSR
+- **AI Integration:** Vercel AI SDK (with Google provider)
+- **Testing:** Vitest
+- **Linting:** ESLint
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ensure you have the following installed on your local machine:
+- Node.js (v20 or higher)
+- npm (or your preferred package manager)
+- PostgreSQL Database
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+3. **Configure the App:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser. Navigate to the **Connect page** within the application to securely provide your PostgreSQL Database URL and Google Gemini API key.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Database Setup:**
+   If you need to apply schema changes to your connected database, you can run Drizzle migrations:
+   ```bash
+   npm run db:generate
+   npm run db:migrate
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app running.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+- `npm run dev`: Starts the Next.js development server.
+- `npm run build`: Builds the application for production.
+- `npm run start`: Starts the Next.js production server.
+- `npm run lint`: Runs ESLint to check for code issues.
+- `npm run db:generate`: Generates Drizzle migrations based on your schema.
+- `npm run db:migrate`: Applies Drizzle migrations to your database.
+- `npm run test`: Runs Vitest test suites.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/src`: Contains the source code including application logic, components, and libraries.
+- `/public`: Contains static assets like images or fonts.
+- `/components.json`: UI component definitions/configuration.
+- `drizzle.config.ts`: Configuration for Drizzle ORM.
+- `eslint.config.mjs`: ESLint flat configuration.
+
+## Deployment
+
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new). See the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for detailed instructions.
